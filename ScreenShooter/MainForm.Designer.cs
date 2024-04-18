@@ -93,6 +93,7 @@
             // 
             this.tbScreenShotPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbScreenShotPath.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tbScreenShotPath.Location = new System.Drawing.Point(51, 13);
             this.tbScreenShotPath.Name = "tbScreenShotPath";
             this.tbScreenShotPath.ReadOnly = true;
@@ -234,7 +235,7 @@
             this.toolStripSeparator1,
             this.tlbtnClose});
             this.cmsTray.Name = "cmsTray";
-            this.cmsTray.Size = new System.Drawing.Size(181, 79);
+            this.cmsTray.Size = new System.Drawing.Size(161, 57);
             // 
             // tlbtnClose
             // 

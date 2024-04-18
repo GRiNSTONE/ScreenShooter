@@ -76,15 +76,6 @@ namespace ScreenShooter
             keyboardHook.Dispose();
         }
 
-
-        private void btnCreateScreenShot_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
-            Thread.Sleep(300);
-            CreateScreenShot();
-            this.Visible = true;
-        }
-
         /// <summary>
         /// Главный метод создания скриншота
         /// </summary>

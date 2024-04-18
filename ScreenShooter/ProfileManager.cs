@@ -21,7 +21,7 @@ namespace ScreenShooter
             {
                 string textSaveFile = File.ReadAllText(SaveFile);
                 Profiles = JsonConvert.DeserializeObject<ProfilesSave>(textSaveFile);
-                ActiveProfile = Profiles.ProfileModels == null ? new ProfileModel("G:\\Temp\\") : Profiles.ProfileModels.Where(it => it.Id == Profiles.IsActive).First();
+                ActiveProfile = Profiles.ProfileModels == null ? new ProfileModel($"{Application.StartupPath}\\") : Profiles.ProfileModels.Where(it => it.Id == Profiles.IsActive).First();
                 if(Profiles.ProfileModels == null)
                 {
                     Profiles.ProfileModels = new List<ProfileModel>
