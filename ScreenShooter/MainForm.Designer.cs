@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.lbLog = new System.Windows.Forms.ListBox();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
@@ -39,14 +40,20 @@
             this.btnProfileList = new System.Windows.Forms.Button();
             this.chbEnableSound = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAbout = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblNameOfProfile = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnOpenFolder = new System.Windows.Forms.Button();
-            this.btnAbout = new System.Windows.Forms.Button();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.cmsTray = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tlbtnClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tltbActiveProfileName = new System.Windows.Forms.ToolStripTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.cmsTray.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbLog
@@ -151,6 +158,17 @@
             this.panel1.Size = new System.Drawing.Size(389, 40);
             this.panel1.TabIndex = 11;
             // 
+            // btnAbout
+            // 
+            this.btnAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAbout.Location = new System.Drawing.Point(299, 9);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(75, 23);
+            this.btnAbout.TabIndex = 10;
+            this.btnAbout.Text = "Описание";
+            this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
+            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -200,15 +218,42 @@
             this.btnOpenFolder.UseVisualStyleBackColor = true;
             this.btnOpenFolder.Click += new System.EventHandler(this.btnOpenFolder_Click);
             // 
-            // btnAbout
+            // notifyIcon
             // 
-            this.btnAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAbout.Location = new System.Drawing.Point(299, 9);
-            this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(75, 23);
-            this.btnAbout.TabIndex = 10;
-            this.btnAbout.Text = "Описание";
-            this.btnAbout.UseVisualStyleBackColor = true;
+            this.notifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon.ContextMenuStrip = this.cmsTray;
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "Screen Shooter";
+            this.notifyIcon.Visible = true;
+            this.notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseClick);
+            // 
+            // cmsTray
+            // 
+            this.cmsTray.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tltbActiveProfileName,
+            this.toolStripSeparator1,
+            this.tlbtnClose});
+            this.cmsTray.Name = "cmsTray";
+            this.cmsTray.Size = new System.Drawing.Size(181, 79);
+            // 
+            // tlbtnClose
+            // 
+            this.tlbtnClose.Name = "tlbtnClose";
+            this.tlbtnClose.Size = new System.Drawing.Size(180, 22);
+            this.tlbtnClose.Text = "Выход";
+            this.tlbtnClose.Click += new System.EventHandler(this.tlbtnClose_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // tltbActiveProfileName
+            // 
+            this.tltbActiveProfileName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tltbActiveProfileName.Name = "tltbActiveProfileName";
+            this.tltbActiveProfileName.ReadOnly = true;
+            this.tltbActiveProfileName.Size = new System.Drawing.Size(100, 23);
             // 
             // MainForm
             // 
@@ -223,6 +268,7 @@
             this.MinimumSize = new System.Drawing.Size(429, 335);
             this.Name = "MainForm";
             this.Text = "Screen Shooter";
+            this.Deactivate += new System.EventHandler(this.MainForm_Deactivate);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -230,6 +276,8 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.cmsTray.ResumeLayout(false);
+            this.cmsTray.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -250,6 +298,11 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnOpenFolder;
         private System.Windows.Forms.Button btnAbout;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.ContextMenuStrip cmsTray;
+        private System.Windows.Forms.ToolStripMenuItem tlbtnClose;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox tltbActiveProfileName;
     }
 }
 

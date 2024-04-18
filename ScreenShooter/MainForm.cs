@@ -39,6 +39,8 @@ namespace ScreenShooter
             chbDivideToMoths.Checked = ProfileManager.ActiveProfile.IsDivideToMonths;
             chbEnableSound.Checked = ProfileManager.ActiveProfile.IsSound;
             tbScreenShotPath.Text = ProfileManager.ActiveProfile.RootPathFolder;
+            this.Text = "Screen Shooter - "+ ProfileManager.ActiveProfile.NameProfile;
+            tltbActiveProfileName.Text = ProfileManager.ActiveProfile.NameProfile;
         }
 
         /// <summary>
@@ -205,6 +207,34 @@ namespace ScreenShooter
         private void cheEnableScreenShot_CheckedChanged(object sender, EventArgs e)
         {
             ConfigureSettingHotKey();
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            new About().ShowDialog();
+        }
+
+        private void tlbtnClose_Click(object sender, EventArgs e)
+        {
+            UnRegisterHotKey();
+            this.Close();
+        }
+
+        private void MainForm_Deactivate(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.ShowInTaskbar = false;
+            }
+        }
+
+        private void notifyIcon_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && this.WindowState == FormWindowState.Minimized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.ShowInTaskbar = true;
+            }
         }
     }
 }
