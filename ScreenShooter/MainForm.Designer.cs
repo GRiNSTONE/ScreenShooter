@@ -44,15 +44,21 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblNameOfProfile = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblQuality = new System.Windows.Forms.Label();
+            this.tbQuality = new System.Windows.Forms.TrackBar();
+            this.cbFormat = new System.Windows.Forms.ComboBox();
             this.btnOpenFolder = new System.Windows.Forms.Button();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.cmsTray = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tlbtnClose = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tltbActiveProfileName = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tlbtnClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.rbFullSc = new System.Windows.Forms.RadioButton();
+            this.rbRegionSc = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbQuality)).BeginInit();
             this.cmsTray.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,9 +68,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbLog.FormattingEnabled = true;
-            this.lbLog.Location = new System.Drawing.Point(12, 202);
+            this.lbLog.Location = new System.Drawing.Point(13, 234);
             this.lbLog.Name = "lbLog";
-            this.lbLog.Size = new System.Drawing.Size(388, 82);
+            this.lbLog.Size = new System.Drawing.Size(420, 108);
             this.lbLog.TabIndex = 1;
             // 
             // lblProfile
@@ -97,7 +103,7 @@
             this.tbScreenShotPath.Location = new System.Drawing.Point(51, 13);
             this.tbScreenShotPath.Name = "tbScreenShotPath";
             this.tbScreenShotPath.ReadOnly = true;
-            this.tbScreenShotPath.Size = new System.Drawing.Size(242, 20);
+            this.tbScreenShotPath.Size = new System.Drawing.Size(243, 20);
             this.tbScreenShotPath.TabIndex = 6;
             this.tbScreenShotPath.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbScreenShotPath_MouseClick);
             // 
@@ -126,7 +132,7 @@
             // btnProfileList
             // 
             this.btnProfileList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProfileList.Location = new System.Drawing.Point(299, 9);
+            this.btnProfileList.Location = new System.Drawing.Point(331, 9);
             this.btnProfileList.Name = "btnProfileList";
             this.btnProfileList.Size = new System.Drawing.Size(75, 23);
             this.btnProfileList.TabIndex = 9;
@@ -156,13 +162,13 @@
             this.panel1.Controls.Add(this.cheEnableScreenShot);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(389, 40);
+            this.panel1.Size = new System.Drawing.Size(421, 40);
             this.panel1.TabIndex = 11;
             // 
             // btnAbout
             // 
             this.btnAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAbout.Location = new System.Drawing.Point(299, 9);
+            this.btnAbout.Location = new System.Drawing.Point(331, 9);
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Size = new System.Drawing.Size(75, 23);
             this.btnAbout.TabIndex = 10;
@@ -180,7 +186,7 @@
             this.panel2.Controls.Add(this.btnProfileList);
             this.panel2.Location = new System.Drawing.Point(12, 58);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(389, 41);
+            this.panel2.Size = new System.Drawing.Size(421, 41);
             this.panel2.TabIndex = 12;
             // 
             // lblNameOfProfile
@@ -198,6 +204,11 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.rbRegionSc);
+            this.panel3.Controls.Add(this.rbFullSc);
+            this.panel3.Controls.Add(this.lblQuality);
+            this.panel3.Controls.Add(this.tbQuality);
+            this.panel3.Controls.Add(this.cbFormat);
             this.panel3.Controls.Add(this.btnOpenFolder);
             this.panel3.Controls.Add(this.tbScreenShotPath);
             this.panel3.Controls.Add(this.label1);
@@ -205,17 +216,53 @@
             this.panel3.Controls.Add(this.chbEnableSound);
             this.panel3.Location = new System.Drawing.Point(12, 105);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(389, 88);
+            this.panel3.Size = new System.Drawing.Size(421, 123);
             this.panel3.TabIndex = 13;
+            // 
+            // lblQuality
+            // 
+            this.lblQuality.AutoSize = true;
+            this.lblQuality.Location = new System.Drawing.Point(343, 72);
+            this.lblQuality.Name = "lblQuality";
+            this.lblQuality.Size = new System.Drawing.Size(19, 13);
+            this.lblQuality.TabIndex = 14;
+            this.lblQuality.Text = "95";
+            // 
+            // tbQuality
+            // 
+            this.tbQuality.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbQuality.Location = new System.Drawing.Point(300, 40);
+            this.tbQuality.Maximum = 100;
+            this.tbQuality.Minimum = 50;
+            this.tbQuality.Name = "tbQuality";
+            this.tbQuality.Size = new System.Drawing.Size(106, 45);
+            this.tbQuality.TabIndex = 13;
+            this.tbQuality.Value = 95;
+            this.tbQuality.Scroll += new System.EventHandler(this.tbQuality_Scroll);
+            this.tbQuality.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tbQuality_MouseUp);
+            // 
+            // cbFormat
+            // 
+            this.cbFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFormat.Items.AddRange(new object[] {
+            "PNG",
+            "JPG"});
+            this.cbFormat.Location = new System.Drawing.Point(223, 40);
+            this.cbFormat.MaxDropDownItems = 2;
+            this.cbFormat.Name = "cbFormat";
+            this.cbFormat.Size = new System.Drawing.Size(71, 21);
+            this.cbFormat.TabIndex = 12;
+            this.cbFormat.SelectedIndexChanged += new System.EventHandler(this.cbFormat_SelectedIndexChanged);
             // 
             // btnOpenFolder
             // 
             this.btnOpenFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpenFolder.Location = new System.Drawing.Point(299, 11);
+            this.btnOpenFolder.Location = new System.Drawing.Point(300, 11);
             this.btnOpenFolder.Name = "btnOpenFolder";
-            this.btnOpenFolder.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenFolder.Size = new System.Drawing.Size(106, 23);
             this.btnOpenFolder.TabIndex = 11;
-            this.btnOpenFolder.Text = "Открыть";
+            this.btnOpenFolder.Text = "Открыть папку";
             this.btnOpenFolder.UseVisualStyleBackColor = true;
             this.btnOpenFolder.Click += new System.EventHandler(this.btnOpenFolder_Click);
             // 
@@ -237,18 +284,6 @@
             this.cmsTray.Name = "cmsTray";
             this.cmsTray.Size = new System.Drawing.Size(161, 57);
             // 
-            // tlbtnClose
-            // 
-            this.tlbtnClose.Name = "tlbtnClose";
-            this.tlbtnClose.Size = new System.Drawing.Size(180, 22);
-            this.tlbtnClose.Text = "Выход";
-            this.tlbtnClose.Click += new System.EventHandler(this.tlbtnClose_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
-            // 
             // tltbActiveProfileName
             // 
             this.tltbActiveProfileName.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -256,11 +291,46 @@
             this.tltbActiveProfileName.ReadOnly = true;
             this.tltbActiveProfileName.Size = new System.Drawing.Size(100, 23);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            // 
+            // tlbtnClose
+            // 
+            this.tlbtnClose.Name = "tlbtnClose";
+            this.tlbtnClose.Size = new System.Drawing.Size(160, 22);
+            this.tlbtnClose.Text = "Выход";
+            this.tlbtnClose.Click += new System.EventHandler(this.tlbtnClose_Click);
+            // 
+            // rbFullSc
+            // 
+            this.rbFullSc.AutoSize = true;
+            this.rbFullSc.Checked = true;
+            this.rbFullSc.Location = new System.Drawing.Point(51, 94);
+            this.rbFullSc.Name = "rbFullSc";
+            this.rbFullSc.Size = new System.Drawing.Size(83, 17);
+            this.rbFullSc.TabIndex = 15;
+            this.rbFullSc.TabStop = true;
+            this.rbFullSc.Text = "Весь экран";
+            this.rbFullSc.UseVisualStyleBackColor = true;
+            // 
+            // rbRegionSc
+            // 
+            this.rbRegionSc.AutoSize = true;
+            this.rbRegionSc.Location = new System.Drawing.Point(140, 94);
+            this.rbRegionSc.Name = "rbRegionSc";
+            this.rbRegionSc.Size = new System.Drawing.Size(107, 17);
+            this.rbRegionSc.TabIndex = 16;
+            this.rbRegionSc.Text = "Область экрана";
+            this.rbRegionSc.UseVisualStyleBackColor = true;
+            this.rbRegionSc.MouseUp += new System.Windows.Forms.MouseEventHandler(this.rbRegionSc_MouseUp);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 296);
+            this.ClientSize = new System.Drawing.Size(445, 355);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -269,7 +339,9 @@
             this.MinimumSize = new System.Drawing.Size(429, 335);
             this.Name = "MainForm";
             this.Text = "Screen Shooter";
+            this.Activated += new System.EventHandler(this.MainForm_Activated);
             this.Deactivate += new System.EventHandler(this.MainForm_Deactivate);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -277,6 +349,7 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbQuality)).EndInit();
             this.cmsTray.ResumeLayout(false);
             this.cmsTray.PerformLayout();
             this.ResumeLayout(false);
@@ -304,6 +377,11 @@
         private System.Windows.Forms.ToolStripMenuItem tlbtnClose;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripTextBox tltbActiveProfileName;
+        private System.Windows.Forms.ComboBox cbFormat;
+        private System.Windows.Forms.Label lblQuality;
+        private System.Windows.Forms.TrackBar tbQuality;
+        private System.Windows.Forms.RadioButton rbRegionSc;
+        private System.Windows.Forms.RadioButton rbFullSc;
     }
 }
 
